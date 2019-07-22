@@ -1,48 +1,85 @@
 package array;
 
+/**
+ * @author Aayers-ghw
+ */
 public class GenericArray<T> {
+
     private T[] data;
     private int size;
 
-    // 根据传入容量，构造Array
+    /**
+     * 根据传入容量，构造Array
+     *
+     * @param capacity
+     */
     public GenericArray(int capacity) {
         data = (T[]) new Object[capacity];
         size = 0;
     }
 
-    // 无参构造方法，默认数组容量为10
+    /**
+     * 无参构造方法，默认数组容量为10
+     */
     public GenericArray() {
         this(10);
     }
 
-    // 获取数组容量
+    /**
+     * 获取数组容量
+     *
+     * @return
+     */
     public int getCapacity() {
         return data.length;
     }
 
-    // 获取当前元素个数
+    /**
+     * 获取当前元素个数
+     *
+     * @return
+     */
     public int count() {
         return size;
     }
 
-    // 判断数组是否为空
+    /**
+     * 判断数组是否为空
+     *
+     * @return
+     */
     public boolean isEmpty() {
         return size == 0;
     }
 
-    // 修改 index 位置的元素
+    /**
+     * 修改 index 位置的元素
+     *
+     * @param index
+     * @param e
+     */
     public void set(int index, T e) {
         checkIndex(index);
         data[index] = e;
     }
 
-    // 获取对应 index 位置的元素
+    /**
+     * 获取对应 index 位置的元素
+     *
+     * @param index
+     * @return
+     */
     public T get(int index) {
         checkIndex(index);
         return data[index];
     }
 
-    // 查看数组是否包含元素e
+    /**
+     * 查看数组是否包含元素e
+     *
+     * @param e
+     * @return
+     */
     public boolean contains(T e) {
         for (int i = 0; i < size; i++) {
             if (data[i].equals(e)) {
@@ -52,9 +89,14 @@ public class GenericArray<T> {
         return false;
     }
 
-    // 获取对应元素的下标, 未找到，返回 -1
+    /**
+     * 获取对应元素的下标, 未找到，返回 -1
+     *
+     * @param e
+     * @return
+     */
     public int find(T e) {
-        for ( int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             if (data[i].equals(e)) {
                 return i;
             }
@@ -63,7 +105,12 @@ public class GenericArray<T> {
     }
 
 
-    // 在 index 位置，插入元素e, 时间复杂度 O(m+n)
+    /**
+     * 在 index 位置，插入元素e, 时间复杂度 O(m+n)
+     *
+     * @param index
+     * @param e
+     */
     public void add(int index, T e) {
         checkIndex(index);
         // 如果当前元素个数等于数组容量，则将数组扩容为原来的2倍
@@ -78,17 +125,30 @@ public class GenericArray<T> {
         size++;
     }
 
-    // 向数组头插入元素
+    /**
+     * 向数组头插入元素
+     *
+     * @param e
+     */
     public void addFirst(T e) {
         add(0, e);
     }
 
-    // 向数组尾插入元素
+    /**
+     * 向数组尾插入元素
+     *
+     * @param e
+     */
     public void addLast(T e) {
         add(size, e);
     }
 
-    // 删除 index 位置的元素，并返回
+    /**
+     * 删除 index 位置的元素，并返回
+     *
+     * @param index
+     * @return
+     */
     public T remove(int index) {
         checkIndexForRemove(index);
 
@@ -96,7 +156,7 @@ public class GenericArray<T> {
         for (int i = index + 1; i < size; i++) {
             data[i - 1] = data[i];
         }
-        size --;
+        size--;
         data[size] = null;
 
         // 缩容
@@ -107,17 +167,29 @@ public class GenericArray<T> {
         return ret;
     }
 
-    // 删除第一个元素
+    /**
+     * 删除第一个元素
+     *
+     * @return
+     */
     public T removeFirst() {
         return remove(0);
     }
 
-    // 删除末尾元素
+    /**
+     * 删除末尾元素
+     *
+     * @return
+     */
     public T removeLast() {
         return remove(size - 1);
     }
 
-    // 从数组中删除指定元素
+    /**
+     * 从数组中删除指定元素
+     *
+     * @param e
+     */
     public void removeElement(T e) {
         int index = find(e);
         if (index != -1) {
@@ -141,7 +213,11 @@ public class GenericArray<T> {
     }
 
 
-    // 扩容方法，时间复杂度 O(n)
+    /**
+     * 扩容方法，时间复杂度 O(n)
+     *
+     * @param capacity
+     */
     private void resize(int capacity) {
         T[] newData = (T[]) new Object[capacity];
 
@@ -158,7 +234,7 @@ public class GenericArray<T> {
     }
 
     private void checkIndexForRemove(int index) {
-        if(index < 0 || index >= size) {
+        if (index < 0 || index >= size) {
             throw new IllegalArgumentException("remove failed! Require index >=0 and index < size.");
         }
     }
