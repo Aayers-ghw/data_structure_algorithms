@@ -12,26 +12,46 @@ public class Solution3 {
         int n = scanner.nextInt();
         scanner.nextLine();
         String[] strings = new String[n];
+        boolean[] booleans = new boolean[n];
         for (int i = 0; i < n; ++i) {
             strings[i] = scanner.nextLine();
+            booleans[i] = false;
         }
-
-        int res = 1;
-        for (int i = 1; i < n; ++i) {
-            String devs = strings[i] + strings[i];
-            String pres = strings[i - 1];
-            int index = 0;
-            int j;
-            for (j = 0; j < pres.length() && index < devs.length(); index++) {
-                if (devs.charAt(index) != pres.charAt(j)) {
-                } else {
-                    j++;
+        int res = 0;
+        for (int i = 0; i < n; ++i) {
+            if (!booleans[i]) {
+                String tt = strings[i] + strings[i];
+                for (int j = i + 1; j < n; ++j) {
+                    if (!booleans[j]) {
+                        if (help(tt, strings[j])) {
+                            booleans[j] = true;
+                        }
+                    }
                 }
-            }
-            if (j != pres.length()) {
                 res++;
             }
         }
         System.out.println(res);
+    }
+
+    public static boolean help(String s1, String s2) {
+        if (s1.length() != s2.length() * 2) {
+            return false;
+        }
+        int i = 0;
+        int j = 0;
+        while (i < s2.length() && j < s1.length()) {
+            while (i < s2.length() && j < s1.length() && s2.charAt(i) == s1.charAt(j)) {
+                i++;
+                j++;
+            }
+            if (i == s2.length()) {
+                return true;
+            } else {
+                i = 0;
+            }
+            j++;
+        }
+        return false;
     }
 }

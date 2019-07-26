@@ -4,7 +4,7 @@
 ####array包
 这里是实现一个数组，对应的是JDK里ArrayList
 
-####bsearch
+####algo.bsearch
 其中包括简单的二分查找和一些简单二分查找的变形
 
 ####heap包

@@ -1,6 +1,6 @@
 package leetcode;
 
-import tree.Solution;
+import algo.tree.Solution;
 
 /**
  * @author Aayers-ghw
