@@ -1,4 +1,4 @@
-package leetcode;
+package leetcodetop100;
 
 import java.util.ArrayList;
 import java.util.List;

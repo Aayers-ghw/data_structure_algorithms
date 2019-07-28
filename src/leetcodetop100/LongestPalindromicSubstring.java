@@ -1,4 +1,4 @@
-package leetcode;
+package leetcodetop100;
 
 /**
  * 最长回文子串

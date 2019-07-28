@@ -1,4 +1,4 @@
-package leetcode.util;
+package leetcodetop100.util;
 
 /**
  * @author Aayers-ghw

@@ -1,4 +1,4 @@
-package leetcode;
+package leetcodetop100;
 
 import algo.tree.Solution;
 

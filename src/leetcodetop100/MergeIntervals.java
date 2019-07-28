@@ -1,6 +1,6 @@
-package leetcode;
+package leetcodetop100;
 
-import leetcode.util.Interval;
+import leetcodetop100.util.Interval;
 
 import java.util.ArrayList;
 import java.util.Arrays;
