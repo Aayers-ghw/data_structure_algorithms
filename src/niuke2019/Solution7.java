@@ -3,6 +3,8 @@ package niuke2019;
 import java.util.Scanner;
 
 /**
+ * °²ÖÃÂ·µÆ
+ *
  * @author Aayers-ghw
  * @date 2019/8/1 20:53
  */
