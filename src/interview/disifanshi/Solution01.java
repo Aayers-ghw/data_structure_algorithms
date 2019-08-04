@@ -6,7 +6,7 @@ import java.util.*;
  * @author Aayers-ghw
  * @date 2019/7/31 19:50
  */
-public class Main {
+public class Solution01 {
     static int maxLength ;
     static int start;
 

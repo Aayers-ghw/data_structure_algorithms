@@ -6,7 +6,7 @@ import java.util.*;
  * @author Aayers-ghw
  * @date 2019/7/31 19:52
  */
-public class Solution {
+public class Solution02 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
