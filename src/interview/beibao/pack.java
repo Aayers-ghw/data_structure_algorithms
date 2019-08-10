@@ -6,16 +6,82 @@ package interview.beibao;
  */
 public class pack {
 
-    public int pack01Solution1(int m, int[] weight, int[] value) {
-        int[][] dp = new int[weight.length + 1][value.length + 1];
-        for (int i = 1; i <= weight.length; ++i) {
-            for (int j = 1; j <= value.length; ++j) {
-                if (weight[i] > j) {
+    /**
+     * 01背包问题
+     *
+     * @param v      背包容量
+     * @param n      物品的总类
+     * @param weight 物品的重量
+     * @param value  物品的价值
+     * @return
+     */
+    public int pack01Solution1(int v, int n, int[] weight, int[] value) {
+        //dp[i][j]表示前i件物品能装入容量为j的背包中的物品价值总和的最大值(注意是最大值)
+        int[][] dp = new int[n + 1][v + 1];
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= v; ++j) {
+                if (j < weight[i - 1]) {
                     dp[i][j] = dp[i - 1][j];
                 } else {
                     dp[i][j] = Math.max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i - 1]);
                 }
             }
         }
+        return dp[n][v];
+    }
+
+    /**
+     * 01背包优化解法
+     */
+    public int pack01Solution2(int v, int n, int[] weight, int[] value) {
+        //dp[i]表示容量为i的背包所能装入物品的最大价值
+        int[] dp = new int[v + 1];
+        for (int i = 1; i <= n; ++i) {
+            //逆序实现
+            for (int j = v; j >= weight[i]; --j) {
+                dp[j] = Math.max(dp[j], dp[j - weight[i - 1]] + value[i - 1]);
+            }
+        }
+        return dp[v];
+    }
+
+    /**
+     * 多重背包
+     * @param v
+     * @param n
+     * @param weight
+     * @param value
+     * @param nums  单个物品的数量
+     * @return
+     */
+    public int packMutiSolutionk(int v, int n, int[] weight, int[] value, int[] nums) {
+        int[][] dp = new int[n + 1][v + 1];
+        for (int i = 1; i <= n; ++i) {
+            for (int j = 1; j <= v; ++j) {
+                int  maxV = Math.min(nums[i - 1], j / weight[i - 1]);
+                for (int k = 0; k <= maxV; ++k) {
+                    dp[i][j] = Math.max(dp[i][j], dp[i][j - k * weight[i - 1]] + k * value[ i -1]);
+                }
+            }
+        }
+        return dp[n][v];
+    }
+
+    /**
+     * 多重背包
+     * @param v
+     * @param n
+     * @param weight
+     * @param value
+     * @return
+     */
+    public int packComSolution(int v, int n, int[] weight, int[] value) {
+        int[] dp = new int[v + 1];
+        for (int i = 1; i <= n; ++i) {
+            for (int j  = weight[i]; j <= v; ++j) {
+                dp[j] = Math.max(dp[j], dp[j - weight[i - 1]] + value[i - 1]);
+            }
+        }
+        return dp[v];
     }
 }
