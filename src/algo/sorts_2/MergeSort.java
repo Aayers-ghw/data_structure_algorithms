@@ -10,6 +10,7 @@ public class MergeSort {
 
     /**
      * 归并排序算法, a是数组，n表示数组大小
+     *
      * @param a
      * @param n
      */
@@ -19,6 +20,7 @@ public class MergeSort {
 
     /**
      * 递归调用函数
+     *
      * @param a
      * @param p
      * @param r

@@ -30,9 +30,4 @@ public class Candy {
         }
         return res;
     }
-
-    public static void main(String[] args) {
-        int candy = new Candy().candy(new int[]{1, 0, 2});
-        System.out.println(candy);
-    }
 }

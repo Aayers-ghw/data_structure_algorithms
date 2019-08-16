@@ -66,7 +66,7 @@ public class Heap {
                 maxPos = i * 2;
             }
             if (i * 2 + 1 <= n && a[maxPos] < a[i * 2 + 1]) {
-                maxPos = i * 2;
+                maxPos = i * 2 + 1;
             }
             if (maxPos == i) {
                 break;

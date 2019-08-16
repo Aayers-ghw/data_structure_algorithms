@@ -26,7 +26,7 @@ public class QuickSort {
      * @param p
      * @param r
      */
-    public static void quickSortInternally(int a[], int p, int r) {
+    public static void quickSortInternally(int[] a, int p, int r) {
         if (p >= r) {
             return;
         }
