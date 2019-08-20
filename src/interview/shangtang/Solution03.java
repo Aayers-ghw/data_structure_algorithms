@@ -15,28 +15,24 @@ public class Solution03 {
         int b = scanner.nextInt();
         int c = scanner.nextInt();
         int f0 = scanner.nextInt();
-        int len = (int)(n % 1000000007);
-        int[] f = new int[len + 1];
-        if (n == 0) {
-            System.out.println(f0);
+
+        if (n < 0) {
+            System.out.println(0);
             return;
         }
+        long[] f = new long[4];
+        f[0] = f0;
         f[1] = a * f[0] + 32768;
-        if (n == 1) {
-            System.out.println(f[1]);
-            return;
-        }
         f[2] = a * f[1] + b * f[0] + 6 + 32767;
-        if (n == 2) {
-            System.out.println(f[2]);
-            return;
+        for (int i = 3; i <= n; ++i) {
+            int index = i % 4;
+            long f1 = f[(i - 1) % 4];
+            long f2 = f[(i - 2) % 4];
+            long f3 = f[(i - 3) % 4];
+            f[index] = (a * f1 + b * f2 + c * f3 + 2 * i * i - i + 32767) % 1000000007;
         }
-        long j;
-        for (j = 3; j <= n; ++j) {
-            int i = (int)(j % 1000000007);
-            f[i] = (a * f[i - 1] + b * f[i - 2] +
-                    c * f[i - 3] + 2 * (int)Math.pow(i, 2) - i + 32767) % 1000000007;
-        }
-        System.out.println(f[len]);
+        long index = n % 4;
+        long result = f[(int) index] % 1000000007;
+        System.out.println(result);
     }
 }
