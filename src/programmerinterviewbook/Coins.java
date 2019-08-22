@@ -15,19 +15,14 @@ public class Coins {
      * @return
      */
     public int countWays(int n) {
-        int[] coins = new int[]{1, 5, 10, 25};
-        //dp[i][sum] = 用前i种硬币构成sum 的所有组合数
-        int[][] dp = new int[coins.length + 1][n + 1];
-        for (int i = 0; i <= coins.length; ++i) {
-            dp[i][0] = 1;
-        }
-        for (int i = 1; i <= coins.length; ++i) {
-            for (int j = 1; j <= n; ++j) {
-                for (int k = 0; k <= j / coins[i - 1]; ++k) {
-                    dp[i][j] += (dp[i - 1][j - k * coins[i - 1]]) % 1000000007;
-                }
+        int[] coin = new int[]{1, 5, 10, 25};
+        int[] dp = new int[n + 1];
+        dp[0] = 1;
+        for (int i = 0; i < coin.length; i++) {
+            for (int j = coin[i]; j <= n; j++) {
+                dp[j] = (dp[j] + dp[j - coin[i]]) % 1000000007;
             }
         }
-        return dp[coins.length][n];
+        return dp[n];
     }
 }
