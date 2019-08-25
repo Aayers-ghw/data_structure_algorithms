@@ -1,12 +1,10 @@
 package programmerinterviewbook;
 
-import java.util.Arrays;
-
 /**
  * @author Aayers-ghw
  * @date 2019/8/23 8:44
  */
-public class Stack {
+class Stack {
 
     /**
      * 叠罗汉是一个著名的游戏，游戏中一个人要站在另一个人的肩膀上。同时我们应该让下面的人比上面的人更高一点。
