@@ -12,10 +12,16 @@ public class Test {
 //        String s = new String("hello");
 //        String t = new String("hello");
 //        char[] c = new char[]{'h', 'e', 'l', 'l', 'o'};
-        String a = "a";
-        String b = "b";
-        String c = a + b;
-        System.out.println(c == "a" + "b");
+//        String a = "a";
+//        String b = "b";
+//        String c = a + b;
+//        System.out.println(c == "a" + "b");
+
+//        for (int i = 0; i < 10; ++i) {
+//            System.out.println(Math.round(Math.random() * 10));
+//        }
+
+//        System.out.println(-1 >>> 1 & 2);
     }
 
     public int test() {
