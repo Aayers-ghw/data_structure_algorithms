@@ -18,7 +18,8 @@ public class LinkedListComponents {
             set.add(i);
         }
         while (head != null) {
-            if (set.contains(head.val) && (head.next == null || !set.contains(head.next.val))) {
+            boolean flag = set.contains(head.val) && (head.next == null || !set.contains(head.next.val));
+            if (flag) {
                 res++;
             }
             head = head.next;
