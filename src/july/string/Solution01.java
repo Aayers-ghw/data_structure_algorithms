@@ -14,8 +14,8 @@ public class Solution01 {
      */
     public void leftRotateString(char[] chars, int n, int m) {
         m %= n;
-        reverseString(chars, 0, n - 1);
-        reverseString(chars, n , m - 1);
+        reverseString(chars, 0, m - 1);
+        reverseString(chars, m , n - 1);
         reverseString(chars, 0 ,n - 1);
     }
 
