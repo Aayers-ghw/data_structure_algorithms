@@ -1,5 +1,8 @@
 package test;
 
+import java.util.Queue;
+import java.util.concurrent.SynchronousQueue;
+
 /**
  * @author Aayers-ghw
  * @date 2019/8/25 9:19
@@ -7,6 +10,14 @@ package test;
 public class Test {
 
     public static void main(String[] args) {
+//        Person person = new Child();
+//        System.out.println(person.name);
+//        Queue queue = new SynchronousQueue();
+//        queue.offer("1");
+//        queue.offer("2");
+//        queue.offer("3");
+//        System.out.println(queue.size());
+
 //        int i = new Test().test();
 //        System.out.println(i);
 //        String s = new String("hello");
@@ -35,5 +46,14 @@ public class Test {
             --i;
             return i--;
         }
+    }
+}
+
+class Person {
+    private String name = "xiaoming";
+}
+class Child extends Person {
+    public Child() {
+
     }
 }
