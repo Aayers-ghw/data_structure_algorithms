@@ -10,6 +10,9 @@ import java.util.concurrent.SynchronousQueue;
 public class Test {
 
     public static void main(String[] args) {
+//        int i = 20;
+//        float j = 14.23F;
+//        System.out.println("res:" + j + i);
 //        Person person = new Child();
 //        System.out.println(person.name);
 //        Queue queue = new SynchronousQueue();
