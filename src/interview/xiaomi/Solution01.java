@@ -1,6 +1,7 @@
 package interview.xiaomi;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 /**
  * 输入
@@ -25,8 +26,37 @@ public class Solution01 {
     当然，你也可以不按照下面这个模板来作答，完全按照自己的想法来 ^-^
     ******************************开始写代码******************************/
     static String solution(String input) {
-        return "";
+        Stack<Character> stack = new Stack<>();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < input.length(); ++i) {
+            char ch = input.charAt(i);
+            switch (ch) {
+                case ',': {
+                    //左节点
+                    if (Character.isDigit(stack.peek())) {
+                        sb.append(stack.pop());
+                    }
+                    //左括号
+                    stack.pop();
 
+                    //父节点
+                    if (!stack.isEmpty()) {
+                        sb.append(stack.pop());
+                    }
+                    break;
+                }
+                case ')': {
+                    if (!stack.isEmpty() && Character.isDigit(stack.peek())) {
+                        sb.append(stack.pop());
+                    }
+                    break;
+                }
+                default: {
+                    stack.push(input.charAt(i));
+                }
+            }
+        }
+        return sb.toString();
     }
 
     /******************************结束写代码******************************/

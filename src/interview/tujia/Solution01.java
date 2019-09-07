@@ -22,26 +22,26 @@ public class Solution01 {
         int m = Integer.parseInt(scanner.next());
         int s = Integer.parseInt(scanner.next());
         int t = Integer.parseInt(scanner.next());
-        int end = s;
-        s = s - m / 10 * 50;
-        double res = m / 10;
-        m = m % 10;
-        while (s > 0 && res <= t * 1.0) {
-            while (s >= 50) {
-                s -= 50;
-                double tmp = (10 - m) / 4.0;
-                m = 0;
-                res += tmp + 1;
+        int dis = 0;
+        for (int i = 1; i <= t; ++i) {
+            if (m >= 10) {
+                dis += 50;
+                m -= 10;
             }
-            s -= 13;
-            res++;
-        }
-        if (res <= t * 1.0) {
-            System.out.println("Yes");
-            System.out.println((int) (res + 0.5));
-            return;
+            //3.5s可以加到10魔法值
+            else if (t - i > 4) {
+                m += 4;
+            } else {
+                dis += 13;
+            }
+
+            if (dis >= s) {
+                System.out.println("Yes");
+                System.out.println(i);
+                return;
+            }
         }
         System.out.println("No");
-        System.out.println(end - s);
+        System.out.println(dis);
     }
 }

@@ -1,9 +1,8 @@
 package leetcodetop100;
 
-import java.util.Arrays;
-import java.util.Comparator;
-
 /**
+ * 动态规划，硬币找零最小个数问题，
+ *
  * @author Aayers-ghw
  * @date 2019/8/1 16:22
  */
@@ -13,6 +12,7 @@ public class CoinChange {
         if (coins == null || coins.length == 0) {
             return -1;
         }
+        //dp[i] 表示钱数为i时的最小硬币数的找零
         int[] dp = new int[amount + 1];
         for (int i = 1; i <= amount; ++i) {
             dp[i] = Integer.MAX_VALUE;

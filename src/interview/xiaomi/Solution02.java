@@ -3,11 +3,6 @@ package interview.xiaomi;
 import java.util.*;
 
 /**
- * 在中国有N座城市和M条无向道路,第i条道路连接Ai和Bi，长度为Ci。
- * 马可波罗想要在中国访问R座城市(r1,r2...rR)(不一定按照这个顺序)。
- * 他可以制定一条旅行路线，这条路线一定要包括这R座城市。
- * 现在问如何制定这条旅行路线，使得经过的总长度最小？
- *
  * @author Aayers-ghw
  * @date 2019/9/6 18:49
  */
@@ -22,10 +17,10 @@ public class Solution02 {
         dp[0] = 1;
         for (int i = prices.length - 1; i >= 0; --i) {
             for (int j = prices[i]; j <= budget; ++j) {
-                dp[j] = dp[j] + dp[j - prices[i]];
+                dp[j] = Math.min(dp[j], dp[j - prices[i]]);
             }
         }
-        return dp[budget] - 1;
+        return dp[budget] == budget ? -1 : dp[budget];
     }
 
     /******************************结束写代码******************************/
