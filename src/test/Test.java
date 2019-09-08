@@ -10,6 +10,7 @@ import java.util.concurrent.SynchronousQueue;
 public class Test {
 
     public static void main(String[] args) {
+        System.out.println("`l;`` 1o1 ??;l`".toLowerCase());
 //        int i = 20;
 //        float j = 14.23F;
 //        System.out.println("res:" + j + i);
