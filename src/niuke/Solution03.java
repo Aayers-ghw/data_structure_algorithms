@@ -51,7 +51,7 @@ public class Solution03 {
             int size = queue.size();
             for (int i = 0; i < size; ++i) {
                 TreeNode node = queue.poll();
-                System.out.println(node.val + " ");
+                System.out.print(node.val + " ");
                 if (node.left != null) {
                     queue.add(node.left);
                 }
@@ -85,7 +85,7 @@ class TreeNode {
         for (int i = 0, layer = 1; i < array.length; i += 3, layer++) {
             int left = array[i];
             int right = array[i + 1];
-            int val = array[i + 1];
+            int val = array[i + 2];
 
             if (map.containsKey(layer)) {
                 root = map.get(layer);
