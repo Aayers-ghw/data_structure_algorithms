@@ -1,5 +1,6 @@
 package interview.meituan;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -9,7 +10,6 @@ import java.util.Scanner;
 public class Solution02 {
 
     public static void main(String[] args) {
-        ThreadLocal
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         boolean flag = false;
