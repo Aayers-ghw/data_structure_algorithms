@@ -1,6 +1,7 @@
 package interview.beike;
 
 import java.util.Scanner;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author Aayers-ghw
