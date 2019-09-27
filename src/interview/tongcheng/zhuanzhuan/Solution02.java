@@ -12,7 +12,7 @@ public class Solution02 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int[] nums = new int[200];
-        for (int i = 0; i < 200; ++i) {
+        for (int i = 0; i < nums.length; ++i) {
             nums[i] = scanner.nextInt();
         }
         Arrays.sort(nums);

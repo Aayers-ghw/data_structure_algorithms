@@ -10,6 +10,10 @@ public class Solution01 {
 
     private static String str = "0123456789`!@#$%^&*(){}\\<>?";
 
+    /**
+     * 十进制转27进制
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         long n = scanner.nextLong();

@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class Solution03 {
 
-    private static String string = "MASK";
+    private static final String string = "MASK";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
